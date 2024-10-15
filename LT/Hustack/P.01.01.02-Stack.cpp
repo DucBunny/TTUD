@@ -1,3 +1,5 @@
+// Stack trong C++ (LIFO)
+
 #include <bits/stdc++.h>
 using namespace std;
 
