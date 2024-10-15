@@ -22,7 +22,7 @@ int main()
                 cout << "NULL" << endl;
             else
             {
-                cout << s.top() << endl;
+                cout << s.top() << endl; // top: lấy phần tử trên cùng của stack
                 s.pop();
             }
         }

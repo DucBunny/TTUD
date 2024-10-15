@@ -1,4 +1,5 @@
 // Mảng cộng dồn 2 chiều (Prefix Sum 2D Array)
+// Tính tổng các phần tử từ vị trí (r1, c1) đến (r2, c2) của ma trận matrix[][].
 
 #include <bits/stdc++.h>
 using namespace std;

@@ -22,7 +22,7 @@ int main()
                 cout << "NULL" << endl;
             else
             {
-                cout << q.front() << endl;
+                cout << q.front() << endl; // front: lấy phần tử đầu tiên của queue
                 q.pop();
             }
         }
