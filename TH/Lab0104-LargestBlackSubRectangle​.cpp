@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int N = 1e3 + 1;
+const int N = 1e3 + 5;
 int a[N][N];
 int n, m;
 int ans;
@@ -51,7 +51,7 @@ long long compute()
     for (int i = 1; i <= m; i++)
     {
         unsigned long long c = (R[i] - L[i] - 1) * h[i];
-        ans = ans < c ? c : ans;
+        ans = max(ans, c);
     }
 
     return ans;

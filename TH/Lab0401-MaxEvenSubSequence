@@ -1,0 +1,56 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+const int N = 1e6 + 10;
+int n;
+long long a[N], S[N], res = -1e18, f[2];
+
+void input()
+{
+    cin >> n;
+    for (int i = 1; i <= n; i++)
+        cin >> a[i];
+}
+
+void solve()
+{
+    for (int i = 1; i <= n; i++)
+    {
+        if (i == 1)
+            S[i] = a[i];
+        else
+            S[i] = S[i - 1] + a[i];
+    }
+    // f[0] = ;
+    // f[1] = ;
+    for (int i = 1; i <= n; i++)
+    {
+        int parity = abs(S[i] % 2);
+        if (i == 1)
+        {
+            if (parity == 1)
+                f[parity] = S[i];
+            else
+            {
+                res = max(res, S[i] - f[parity]);
+                f[parity] = min(f[parity], S[i]);
+            }
+        }
+        res = max(res, S[i] - f[parity]);
+        f[parity] = min(f[parity], S[i]);
+        // f[parity]: gia tri S[j] nho nhat, j < i
+    }
+
+    if (res == -1e18)
+        cout << "NOT FOUND" << endl;
+
+    cout << res << endl;
+}
+
+int main()
+{
+    input();
+    solve();
+
+    return 0;
+}

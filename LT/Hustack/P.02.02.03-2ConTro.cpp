@@ -5,18 +5,13 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main()
+int n, M;
+int l = 1, r = n, res = 0; // l: con trỏ bên trái, r: con trỏ bên phải, res: số cặp số có tổng bằng M
+
+void twoPointers(int a[], int n, int M)
 {
-    int n, M;
-    cin >> n >> M;
-
-    int a[n];
-    for (int i = 1; i <= n; i++)
-        cin >> a[i];
-
     sort(a + 1, a + n + 1); // sắp xếp mảng a tăng dần
 
-    int l = 1, r = n, res = 0; // l: con trỏ bên trái, r: con trỏ bên phải, res: số cặp số có tổng bằng M
     while (l < r)
     {
         if (a[l] + a[r] < M)
@@ -32,6 +27,28 @@ int main()
     }
 
     cout << res << endl;
+}
 
+void solve()
+{
+    cin >> n >> M;
+
+    int a[n];
+    for (int i = 1; i <= n; i++)
+        cin >> a[i];
+
+    twoPointers(a, n, M);
+}
+
+int main()
+{
+    solve();
     return 0;
 }
+
+/* Input
+5 6
+5 2 1 4 3
+
+Output
+2 */

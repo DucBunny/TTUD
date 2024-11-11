@@ -10,14 +10,20 @@ int n, Q, i1, i2;
 long long a[maxN];
 long long prefixSum[maxN];
 
-int main()
+void prefixSum1D()
+{
+    prefixSum[0] = 0;
+    for (int i = 1; i <= n; i++)
+        prefixSum[i] = prefixSum[i - 1] + a[i];
+}
+
+void solve()
 {
     cin >> n;
     for (int i = 1; i <= n; i++)
         cin >> a[i];
 
-    for (int i = 1; i <= n; i++)
-        prefixSum[i] = prefixSum[i - 1] + a[i];
+    prefixSum1D();
 
     cin >> Q;
     while (Q--)
@@ -25,6 +31,25 @@ int main()
         cin >> i1 >> i2;
         cout << prefixSum[i2] - prefixSum[i1 - 1] << endl;
     }
+}
 
+int main()
+{
+    solve();
     return 0;
 }
+
+/* Input
+5
+5 8 7 1 9
+4
+1 2
+1 5
+1 3
+4 5
+
+Output
+13
+30
+20
+10 */
